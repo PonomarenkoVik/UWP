@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" MinHeight="600" MinWidth="450" KeyDown="MainPage_OnKeyDown" MaxHeight="600" MaxWidth="450">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" MinHeight="600" MinWidth="450" MaxHeight="600" MaxWidth="450">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -60,18 +60,34 @@
             <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
 
-        <MenuBar Name="Game" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment ="Stretch">
+        <MenuBar Name="Game" Grid.Row="0" IsTabStop="False" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment ="Stretch">
             <MenuBarItem  Title="Game">
-                <MenuFlyoutItem Text="Start game"></MenuFlyoutItem>
-                <MenuFlyoutItem Text="Stop game"></MenuFlyoutItem>
-                <MenuFlyoutItem Text="Open game"></MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save game"></MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save options"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="StartGameItem" Text="Start game" Click="StartClick"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="StopGameItem" Text="Stop game" Click="StopClick"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="PauseItem" Text="Pause" Click="PauseGame_Click"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="OpenGameItem" Text="Open game"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="SaveGameItem" Text="Save game"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="SaveOptionsItem" Text="Save options"></MenuFlyoutItem>
             </MenuBarItem>
             <MenuBarItem  Title="More">
-                <MenuFlyoutItem Text="Information"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="InformationItem" Text="Information"></MenuFlyoutItem>
             </MenuBarItem>
         </MenuBar>
-       
+
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <TextBlock FontSize="15" Margin="10" HorizontalAlignment="Right">Level:</TextBlock>
+            <TextBlock FontSize="15" Margin="10" HorizontalAlignment="Right">Line:</TextBlock>
+            <TextBlock FontSize="15" Margin="10" HorizontalAlignment="Right">Score:</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2">
+            <TextBlock x:Name="LevelLine" FontSize="15" Margin="10" HorizontalAlignment="Left"></TextBlock>
+            <TextBlock x:Name="ScoreLine" FontSize="15" Margin="10" HorizontalAlignment="Left"></TextBlock>
+            <TextBlock x:Name="ScoreText" FontSize="15" Margin="10" HorizontalAlignment="Left"></TextBlock>
+        </StackPanel>
+
+
+        <Canvas x:Name="gameBoard" Background="AliceBlue" Margin="10,0,0,10" Grid.Row ="2" Grid.Column="0" Grid.RowSpan="2" Width="250" Height="500" HorizontalAlignment="Stretch" VerticalAlignment="Top"></Canvas>
+        <Canvas x:Name="NextFigureBoard" Background="AliceBlue" Margin="0,0,0,10" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top"></Canvas>
+
     </Grid>
 </Page>
