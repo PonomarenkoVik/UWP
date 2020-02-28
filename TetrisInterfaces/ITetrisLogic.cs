@@ -21,9 +21,9 @@ namespace TetrisInterfaces
         void Move(Direction dir);      
         void Turn();
         void Step();
-        bool Save();
-        void Open(int idSaveP, int lvl, int burnL, int score, int idField);
-        DataTable GetSavePoints();
+        //bool Save();
+        //void Open(int idSaveP, int lvl, int burnL, int score, int idField);
+        //DataTable GetSavePoints();
 
     }
 }

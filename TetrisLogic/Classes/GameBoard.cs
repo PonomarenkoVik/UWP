@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +11,11 @@ namespace TetrisLogic.Classes
 {
     public abstract class GameBoard
     {
-        protected GameBoard(int width, int height, SqlConnectionStringBuilder conn)
+        protected GameBoard(int width, int height/*, SqlConnectionStringBuilder conn*/)
         {
             Width = width;
             Height = height;
-            _connStr = conn;          
+            //_connStr = conn;          
             _level = 0;          
             _score = 0;
         }
@@ -68,6 +68,6 @@ namespace TetrisLogic.Classes
         protected int _height;      
         protected int _level;      
         protected int _score;
-        protected SqlConnectionStringBuilder _connStr;
+        //protected SqlConnectionStringBuilder _connStr;
     }
 }

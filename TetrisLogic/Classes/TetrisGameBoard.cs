@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using TetrisInterfaces;
 using TetrisInterfaces.Enum;
 using TetrisLogic.Figures;
@@ -12,7 +12,7 @@ namespace TetrisLogic.Classes
 
     public class TetrisGameBoard : GameBoard, ITetrisLogic
     {
-        public TetrisGameBoard(int width, int height, SqlConnectionStringBuilder conn) : base(width, height, conn)
+        public TetrisGameBoard(int width, int height/*, SqlConnectionStringBuilder conn*/) : base(width, height/*, conn*/)
         {
             _field = new BoardPoint[_width, _height];
             _burnedLines = 0;
@@ -263,32 +263,32 @@ namespace TetrisLogic.Classes
             SoundEvent?.Invoke(this, new SoundEventArg(TSound.Burning));
         }
 
-        public bool Save()
-        {
-            return Logic.SaveGame(this, _connStr);
-        }
+        //public bool Save()
+        //{
+        //    //return Logic.SaveGame(this, _connStr);
+        //}
 
         public void Open(int idSaveP, int lvl, int burnL, int score, int idField)
         {
-            using (TetrisConnection conn = new TetrisConnection(_connStr))
-            {
-                if (conn.OpenGamePoint(this, idSaveP, idField))
-                {
-                    Level = lvl;
-                    BurnedLine = burnL;
-                    Score = score;
-                    Update();
-                }               
-            }                      
+            //using (TetrisConnection conn = new TetrisConnection(_connStr))
+            //{
+            //    if (conn.OpenGamePoint(this, idSaveP, idField))
+            //    {
+            //        Level = lvl;
+            //        BurnedLine = burnL;
+            //        Score = score;
+            //        Update();
+            //    }               
+            //}                      
         }
 
-        public DataTable GetSavePoints()
-        {
-            using (TetrisConnection conn = new TetrisConnection(_connStr))
-            {
-                return conn.GetSavePoints();
-            }       
-        }
+        //public DataTable GetSavePoints()
+        //{
+        //    //using (TetrisConnection conn = new TetrisConnection(_connStr))
+        //    //{
+        //    //    return conn.GetSavePoints();
+        //    //}       
+        //}
 
 
         private Figure _currentFigure;

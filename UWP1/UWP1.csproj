@@ -157,6 +157,12 @@
   <ItemGroup>
     <Folder Include="Controls\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TetrisLogic\TetrisLogic.csproj">
+      <Project>{48cb82ee-62a6-4171-a911-9273ebdfc93a}</Project>
+      <Name>TetrisLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
