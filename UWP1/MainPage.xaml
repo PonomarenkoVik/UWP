@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" MinHeight="600" MinWidth="450" KeyDown="MainPage_OnKeyDown" MaxHeight="600" MaxWidth="450">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -35,30 +35,43 @@
                         Color="Red"/>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
-            
+            <!-- Background --><!--
+            <LinearGradientBrush x:Key="BackgroundBoard"  StartPoint="0.5,0.5" EndPoint="10,010">
+                <GradientStop Color="#FAFAFAFA" Offset="0"/>
+                <GradientStop Color="#B2171F6E" Offset="0.5"/>
+                <GradientStop Color="#000000" Offset="1"/>
+            </LinearGradientBrush>-->
+
         </ResourceDictionary>
-
-
-        
     </Page.Resources>
-    
-    
-    <Grid>
+
+
+    <Grid Margin="0,0,3.2,0.4">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal"  HorizontalAlignment="Right">
-            <Button  HorizontalContentAlignment="Right" Height="25" Width="25" Margin="5" Style="{StaticResource ButtonDefault}" Template="{StaticResource CloseButton}">
 
-            </Button>
-        </StackPanel>
+        <MenuBar Name="Game" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment ="Stretch">
+            <MenuBarItem  Title="Game">
+                <MenuFlyoutItem Text="Start game"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Stop game"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Open game"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Save game"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Save options"></MenuFlyoutItem>
+            </MenuBarItem>
+            <MenuBarItem  Title="More">
+                <MenuFlyoutItem Text="Information"></MenuFlyoutItem>
+            </MenuBarItem>
+        </MenuBar>
+       
     </Grid>
 </Page>

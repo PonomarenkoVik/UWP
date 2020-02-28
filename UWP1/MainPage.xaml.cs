@@ -26,5 +26,10 @@ namespace UWP1
         {
             this.InitializeComponent();
         }
+
+        private void MainPage_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
